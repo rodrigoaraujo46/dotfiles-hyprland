@@ -4,7 +4,6 @@
         "type": "kitty-direct",
 		"source": "~/.config/fastfetch/logo.png",
         "width": 25,
-        "height": 7,
     },
     "display": {
         "separator": " "
