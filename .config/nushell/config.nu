@@ -52,7 +52,7 @@ $env.config.keybindings ++= [{
     mode: [emacs, vi_normal, vi_insert]
     event: {
         send: executehostcommand,
-        cmd: "fastfetch; tput cuu 2"
+        cmd: "clear; fastfetch"
     }
 }]
 
@@ -62,4 +62,4 @@ $env.BUN_INSTALL = $env.HOME + '/.bun'
 $env.PATH ++= [$'($env.BUN_INSTALL)/bin']
 
 
-fastfetch; tput cuu 2
+fastfetch
