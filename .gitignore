@@ -25,3 +25,5 @@
 !.config/hypr/**
 !.config/nwg-bar/
 !.config/nwg-bar/**
+!.config/fastfetch/
+!.config/fastfetch/**

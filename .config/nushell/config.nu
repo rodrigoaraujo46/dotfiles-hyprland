@@ -34,4 +34,32 @@ $env.config.keybindings ++= [{
     event: { send: executehostcommand cmd: tmux-sessionizer}
 }]
 
+$env.config.keybindings ++= [{
+    name: change_dir_with_fzf
+    modifier: CONTROL
+    keycode: Char_t
+    mode: [emacs, vi_normal, vi_insert]
+    event: {
+        send: executehostcommand,
+        cmd: "cd (ls ~/** | where type == dir | each { |row| $row.name} | str join (char nl) | fzf | decode utf-8 | str trim)"
+    }
+}]
+
+$env.config.keybindings ++= [{
+    name: clear
+    modifier: CONTROL
+    keycode: Char_l
+    mode: [emacs, vi_normal, vi_insert]
+    event: {
+        send: executehostcommand,
+        cmd: "clear; fastfetch"
+    }
+}]
+
 source $"($nu.cache-dir)/carapace.nu"
+
+$env.BUN_INSTALL = $env.HOME + '/.bun'
+$env.PATH ++= [$'($env.BUN_INSTALL)/bin']
+
+
+fastfetch

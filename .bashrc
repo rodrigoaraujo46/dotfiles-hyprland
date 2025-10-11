@@ -36,3 +36,7 @@ export PATH=$GOPATH/bin:$PATH
 
 #TMUX-SESSIONIZER
 bind -x '"\C-f": tmux-sessionizer'
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
