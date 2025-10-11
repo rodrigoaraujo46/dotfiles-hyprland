@@ -1,0 +1,13 @@
+command = /usr/bin/nu --login --interactive
+#COLORS
+theme = "Rose Pine Moon"
+
+#FONT
+font-family = "JetBrainsMono Nerd Font"
+font-size = 19
+
+#WINDOW
+window-decoration = false
+window-padding-x = 20
+window-padding-y = 15
+window-padding-balance = true
