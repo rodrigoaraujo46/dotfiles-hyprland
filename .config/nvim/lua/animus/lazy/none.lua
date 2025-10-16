@@ -8,7 +8,8 @@ return {
                 null_ls.builtins.diagnostics.golangci_lint,
                 null_ls.builtins.formatting.gofumpt.with({
                     extra_args = { "-extra" },
-                })
+                }),
+                null_ls.builtins.formatting.goimports
             },
         })
     end,

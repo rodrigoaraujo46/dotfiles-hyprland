@@ -2,17 +2,6 @@ require("animus.set")
 require("animus.remap")
 require("animus.lazy_init")
 
--- DO.not
--- DO NOT INCLUDE THIS
-
--- If i want to keep doing lsp debugging
--- function restart_htmx_lsp()
---     require("lsp-debug-tools").restart({ expected = {}, name = "htmx-lsp", cmd = { "htmx-lsp", "--level", "DEBUG" }, root_dir = vim.loop.cwd(), });
--- end
-
--- DO NOT INCLUDE THIS
--- DO.not
-
 local augroup = vim.api.nvim_create_augroup
 local animusGroup = augroup('animus', {})
 
@@ -46,19 +35,6 @@ autocmd({ "BufWritePre" }, {
     command = [[%s/\s\+$//e]],
 })
 
-autocmd('BufEnter', {
-    group = animusGroup,
-    callback = function()
-        --[[
-        if vim.bo.filetype == "zig" then
-            vim.cmd.colorscheme("tokyonight-night")
-        else
-            vim.cmd.colorscheme("rose-pine-moon")
-        end
-        ]]
-    end
-})
-
 
 autocmd('LspAttach', {
     group = animusGroup,
@@ -71,9 +47,9 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+        vim.keymap.set("i", "<C-s>", function() vim.lsp.buf.signature_help() end, opts)
+        vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, opts)
+        vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, opts)
     end
 })
 
