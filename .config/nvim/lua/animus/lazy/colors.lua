@@ -4,7 +4,6 @@ end
 
 return {
     {
-
         "catppuccin/nvim",
         name = "catppuccin",
         config = function()
@@ -13,7 +12,7 @@ return {
                 transparent_background = false,
                 float = {
                     transparent = true, -- enable transparent floating windows
-                    solid = false, -- use solid styling for floating windows, see |winborder|
+                    solid = false,      -- use solid styling for floating windows, see |winborder|
                 },
                 --ColorMyPencils("catppuccin")
 
