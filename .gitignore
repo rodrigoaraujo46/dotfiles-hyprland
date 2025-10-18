@@ -7,8 +7,6 @@
 !.config/
 !.config/nvim/
 !.config/nvim/**
-!.config/rofi/
-!.config/rofi/**
 !.config/ghostty/
 !.config/ghostty/**
 !.config/waybar/
@@ -27,3 +25,5 @@
 !.config/nwg-bar/**
 !.config/fastfetch/
 !.config/fastfetch/**
+!.config/walker/
+!.config/walker/**
