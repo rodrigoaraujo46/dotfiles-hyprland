@@ -11,6 +11,7 @@ return {
     },
 
     config = function()
+        vim.lsp.enable('nushell')
         require("mason").setup()
         require("mason-lspconfig").setup()
 

@@ -1,0 +1,10 @@
+#!/usr/bin/env nu
+
+if $env.PWD == $env.HOME {
+    clear
+    return
+}
+
+tmux new-window -dn scratch
+vim .
+clear

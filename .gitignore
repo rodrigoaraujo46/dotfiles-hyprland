@@ -17,6 +17,7 @@
 !.config/nushell/
 !.config/nushell/config.nu
 !.config/nushell/env.nu
+!.tmux-sessionizer
 !.config/tmux-sessionizer/
 !.config/tmux-sessionizer/**
 !.config/hypr/
