@@ -23,6 +23,7 @@ MAIN_BIND("K", hl.dsp.focus({ direction = "up" }))
 MAIN_BIND("L", hl.dsp.focus({ direction = "right" }))
 MAIN_BIND("J", hl.dsp.focus({ direction = "down" }))
 MAIN_BIND("H", hl.dsp.focus({ direction = "left" }))
+MAIN_BIND("TAB", hl.dsp.window.cycle_next())
 
 MAIN_BIND("SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 MAIN_BIND("SHIFT + L", hl.dsp.window.move({ direction = "right" }))

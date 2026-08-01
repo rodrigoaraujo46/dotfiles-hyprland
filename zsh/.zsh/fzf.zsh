@@ -20,3 +20,5 @@ export FZF_DEFAULT_OPTS="
 	--height 50% --preview-window=right:50%
 	--preview '$(typeset -f fzf_preview); fzf_preview {}'
 	"
+
+unfunction fzf_preview

@@ -17,7 +17,7 @@ zvm_after_select_vi_mode() {
 
 zvm_after_init() {
 	source <(fzf --zsh)
-	bindkey -s ^f "^utmux-sessionizer\n"
+	bindkey -s ^f "^uhaunt\n"
 
 	bindkey -M menuselect 'h' vi-backward-char
 	bindkey -M menuselect 'j' vi-down-line-or-history

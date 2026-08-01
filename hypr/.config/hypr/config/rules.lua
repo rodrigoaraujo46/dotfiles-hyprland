@@ -28,3 +28,12 @@ hl.window_rule({
 	size = { "window_h*16/9", "300" },
 	move = { "monitor_w-window_w-5", "5" },
 })
+
+hl.window_rule({
+	match = {
+		class = "Spotify",
+	},
+	float = true,
+	center = true,
+	size = { "window_h*16/9", "700" },
+})

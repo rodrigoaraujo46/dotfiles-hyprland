@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-fuck() {
+please() {
 	local cmd_array
 	read -rA cmd_array <<<"$(fc -ln -1)"
 	sudo "${cmd_array[@]}"
@@ -41,7 +41,7 @@ vibecommit() {
 mirrors() {
 	local tmp="/tmp/mirrorlist.tmp"
 
-	if curl -s "https://archlinux.org/mirrorlist/?country=PT&country=ES&protocol=https&use_mirror_status=on" |
+	if curl -s "https://archlinux.org/mirrorlist/?country=PT&protocol=https&use_mirror_status=on" |
 		sed -e 's/^#Server/Server/' -e '/^#/d' |
 		rankmirrors -n 5 - >"$tmp" && [ -s "$tmp" ]; then
 

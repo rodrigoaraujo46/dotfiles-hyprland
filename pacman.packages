@@ -61,3 +61,7 @@ slurp
 pacman-contrib
 hyprpolkitagent
 xdg-desktop-portal-hyprland
+zip
+networkmanager
+inotify-tools
+brightnessctl
