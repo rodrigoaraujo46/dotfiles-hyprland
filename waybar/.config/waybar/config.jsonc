@@ -129,6 +129,7 @@
 		"on-click-middle": "uwsm app -- gtk-launch wiremix",
 		"ignored-sinks": ["Easy Effects Sink"],
 		"format-source": "",
-		"format-source-muted": ""
+		"format-source-muted": "",
+		"max-volume": 150
 	}
 }
