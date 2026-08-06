@@ -22,3 +22,5 @@ export FZF_DEFAULT_OPTS="
 	"
 
 unfunction fzf_preview
+
+source <(fzf --zsh)

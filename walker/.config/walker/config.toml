@@ -9,17 +9,5 @@ default = [
 empty = ["desktopapplications"]
 
 [[providers.prefixes]]
-prefix = ";"
-provider = "providerlist"
-
-[[providers.prefixes]]
-prefix = ">"
-provider = "runner"
-
-[[providers.prefixes]]
 prefix = "*"
 provider = "bluetooth"
-
-[[providers.prefixes]]
-prefix = "!"
-provider = "menus:power"
