@@ -23,4 +23,30 @@ export FZF_DEFAULT_OPTS="
 
 unfunction fzf_preview
 
+fzf-joint-history-widget() {
+	local selected
+
+	selected=$(cat "${HISTFILE:-$HOME/.zsh_history}" | cut -d';' -f2- | awk '
+        {
+            line[NR] = $0
+            last[$0] = NR
+        }
+        END {
+            for (i = 1; i <= NR; i++) {
+                if (last[line[i]] == i) {
+                    print line[i]
+                }
+            }
+        }
+    ' | fzf --no-preview --tac --no-sort --query="$LBUFFER")
+
+	if [[ -n $selected ]]; then
+		LBUFFER="${selected}"
+	fi
+	zle redisplay
+}
+zle -N fzf-joint-history-widget
+#CTRL+SHIT+R
+bindkey '^[[114;6u' fzf-joint-history-widget
+
 source <(fzf --zsh)

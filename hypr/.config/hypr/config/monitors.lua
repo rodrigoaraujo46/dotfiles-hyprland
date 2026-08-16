@@ -1,38 +1,38 @@
-local mirror = true
-local MONITORS = {
-	{ output = "eDP-1", mode = "1920x1080@144", position = "1920x0", scale = 1 },
-	{ output = "HDMI-A-1", mode = "1920x1080@144", position = "0x0", scale = 1 },
+local isMirror, primary, secondary = false, "HDMI-A-1", "eDP-1"
+
+MONITORS = {
+	{ output = primary, mode = "1920x1080@144", position = "0x0", scale = 1 },
+	{ output = secondary, mode = "1920x1080@144", position = "1920x0", scale = 1 },
 }
 
-local function second_monitor()
-	local cfg = MONITORS[2]
-	cfg.mirror = mirror and MONITORS[1].output or ""
-	hl.monitor(cfg)
-end
-
-local function setup_workspaces()
+local function updateWorkspaces(isMove)
 	for i = 1, 10 do
-		local target = i <= 5 and "HDMI-A-1" or "eDP-1"
+		local target = (not isMirror and i > 5) and secondary or primary
+		local ws = tostring(i)
 
-		hl.workspace_rule({ monitor = target, workspace = tostring(i) })
-
-		hl.timer(function()
-			DSP(hl.dsp.workspace.move({ monitor = target, workspace = tostring(i) }))
-		end, { timeout = 50, type = "oneshot" })
+		if isMove then
+			DSP(hl.dsp.workspace.move({ workspace = ws, monitor = target }))
+		else
+			hl.workspace_rule({ monitor = target, workspace = ws })
+		end
 	end
 end
 
-local function toggle_mirror()
-	mirror = not mirror
-	second_monitor()
-	setup_workspaces()
+local function toggleMirroring()
+	isMirror = not isMirror
+	MONITORS[2].mirror = isMirror and primary or ""
+	hl.monitor(MONITORS[2])
+
+	updateWorkspaces(false)
+	hl.timer(function()
+		updateWorkspaces(true)
+	end, { timeout = 50, type = "oneshot" })
 end
+
+MAIN_BIND("SHIFT + M", toggleMirroring)
 
 for _, m in ipairs(MONITORS) do
 	hl.monitor(m)
 end
 
-second_monitor()
-setup_workspaces()
-
-MAIN_BIND("SHIFT + M", toggle_mirror)
+updateWorkspaces(false)

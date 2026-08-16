@@ -1,5 +1,7 @@
 # shellcheck shell=bash
 
+export KEYTIMEOUT=1
+
 function zle-select-cursor {
 	echo -ne '\e[6 q'
 	if [[ ${KEYMAP} == vicmd ]]; then
@@ -13,7 +15,12 @@ function zle-line-init {
 }
 zle -N zle-line-init
 
-export KEYTIMEOUT=1
+vi-yank-clip() {
+	zle .vi-yank
+	print -rn -- $CUTBUFFER | wl-copy
+}
+zle -N vi-yank vi-yank-clip
+
 bindkey -v
 
 bindkey -M menuselect 'h' vi-backward-char
