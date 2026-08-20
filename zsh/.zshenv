@@ -25,5 +25,6 @@ addToPathFront "$HOME/.local/bin"
 addToPathFront /usr/local/bin
 addToPathFront "$GOPATH/bin"
 addToPathFront "$BUN_INSTALL/bin"
+addToPathFront "$(composer global config bin-dir --absolute 2>/dev/null)"
 
 unfunction addToPath addToPathFront
